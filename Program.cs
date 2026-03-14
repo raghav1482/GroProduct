@@ -12,7 +12,7 @@ builder.Services.AddControllers()
         opts.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
     });
 
-// Swagger setup
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -23,7 +23,7 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-// SQL Server DbContext
+
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 if (string.IsNullOrWhiteSpace(connectionString))
 {
@@ -35,29 +35,19 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 var app = builder.Build();
 
-// automatically ensure database and schema exist on startup
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    // apply migrations when available or fall back to EnsureCreated
-    if (db.Database.GetPendingMigrations().Any())
-    {
-        db.Database.Migrate();
-    }
-    else
-    {
-        db.Database.EnsureCreated();
-    }
-
-    // even if the database already existed, make sure the Users table is present
-    // (EnsureCreated won't add tables to an existing database)
+    db.Database.Migrate();
 }
 
-// Swagger middleware
+
+
 app.UseSwagger();
 app.UseSwaggerUI();
 app.Map("/", () => "GroProduct API Running...");
-// Map controllers
+
+
 app.MapControllers();
 
 

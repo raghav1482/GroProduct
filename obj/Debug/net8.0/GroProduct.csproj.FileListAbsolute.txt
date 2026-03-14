@@ -137,4 +137,5 @@ D:\raghvendra\Projects\DotNET\GroProduct\GroProduct\obj\Debug\net8.0\refint\GroP
 D:\raghvendra\Projects\DotNET\GroProduct\GroProduct\obj\Debug\net8.0\GroProduct.pdb
 D:\raghvendra\Projects\DotNET\GroProduct\GroProduct\obj\Debug\net8.0\GroProduct.genruntimeconfig.cache
 D:\raghvendra\Projects\DotNET\GroProduct\GroProduct\obj\Debug\net8.0\ref\GroProduct.dll
+D:\raghvendra\Projects\DotNET\GroProduct\GroProduct\obj\Debug\net8.0\GroProduct.sourcelink.json
 D:\raghvendra\Projects\DotNET\GroProduct\GroProduct\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

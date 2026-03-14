@@ -20,21 +20,28 @@ namespace GroProduct.Controllers
         }
 
         // GET: api/auth/hello
-        [HttpGet("hello")]
-        public string HelloMethod()
-        {
-            return "Hello from Auth";
-        }
+        //[HttpGet("hello")]
+        //public string HelloMethod()
+        //{
+        //    return "Hello from Auth";
+        //}
 
         // GET: api/auth/login
         [HttpGet("login")]
         public IActionResult Login(string email , string password)
         {
             // You can access HttpContext directly (no need to pass it)
-            var request = HttpContext.Request;
-
-            return Ok("Email: " + email + " Password: " + password);
+            var user = db.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
+            if(user == null)
+            {
+                return Unauthorized("Invalid email or password");
+            }
+            else
+            {
+                return Ok("Login successful for user: " + user.Name);
+            }
         }
+
 
         // POST: api/auth/register
         [HttpPost("register")]

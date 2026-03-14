@@ -12,7 +12,7 @@ namespace GroProduct.Models
         public string Name { get; set; }
         public string Email { get; set; }
 
-        [JsonIgnore]
+        //[JsonIgnore]
         public string Password { get; set; }
         public string Phone { get; set; }
     }

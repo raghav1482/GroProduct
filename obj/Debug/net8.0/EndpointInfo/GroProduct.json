@@ -5,35 +5,6 @@
     "version": "v1"
   },
   "paths": {
-    "/api/Auth/hello": {
-      "get": {
-        "tags": [
-          "Auth"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/Auth/login": {
       "get": {
         "tags": [
@@ -503,6 +474,10 @@
             "nullable": true
           },
           "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
             "type": "string",
             "nullable": true
           },
