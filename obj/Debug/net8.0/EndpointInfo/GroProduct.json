@@ -64,6 +64,18 @@
         }
       }
     },
+    "/": {
+      "get": {
+        "tags": [
+          "GroProduct"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Orders/getAll": {
       "get": {
         "tags": [
@@ -172,6 +184,18 @@
         }
       }
     },
+    "/view-orders/OrdersView": {
+      "get": {
+        "tags": [
+          "OrdersView"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Products/getAll": {
       "get": {
         "tags": [
@@ -273,6 +297,18 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/view-products/ProductsView": {
+      "get": {
+        "tags": [
+          "ProductsView"
+        ],
         "responses": {
           "200": {
             "description": "Success"

@@ -1,11 +1,12 @@
 using GroProduct.Data;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add Controllers with JSON options to handle possible cycles
-builder.Services.AddControllers()
+// Add Controllers with Views and JSON options to handle possible cycles
+builder.Services.AddControllersWithViews()
     .AddJsonOptions(opts =>
     {
         // ignore object reference loops instead of throwing
@@ -43,12 +44,19 @@ using (var scope = app.Services.CreateScope())
 
 
 
+
+app.UseStaticFiles();
+
 app.UseSwagger();
 app.UseSwaggerUI();
-app.Map("/", () => "GroProduct API Running...");
+app.MapGet("/", () => Results.Redirect("/swagger/index.html"));
 
-
+// Map API and MVC controllers
 app.MapControllers();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=ProductsView}/{action=Index}/{id?}");
 
 
 app.Run();

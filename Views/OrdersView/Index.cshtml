@@ -1,0 +1,106 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Orders</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background: #f4f4f4;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Orders</h1>
+
+    <div id="status">Loading...</div>
+
+    <table id="OrdersTable" style="display:none;">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Product</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total Amount</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody></tbody>
+    </table>
+
+    <script>
+        async function loadOrders() {
+
+            try {
+
+                const res = await fetch('/api/Orders/getAll');
+
+                if (!res.ok) throw new Error('Failed to fetch orders');
+
+                const orders = await res.json();
+
+                const tbody = document.querySelector('#OrdersTable tbody');
+
+                tbody.innerHTML = '';
+
+                orders.forEach(order => {
+
+                    order.orderItems.forEach(item => {
+
+                        const product = item.product;
+
+                        const tr = document.createElement('tr');
+
+                        tr.innerHTML = `
+                            <td>${order.user?.name ?? ''}</td>
+                            <td>${product?.name ?? ''}</td>
+                            <td>${product?.description ?? ''}</td>
+                            <td>${product?.price ?? 0}</td>
+                            <td>${item.quantity ?? 0}</td>
+                            <td>${order.totalAmount ?? 0}</td>
+                            <td>${order.status ?? ''}</td>
+                        `;
+
+                        tbody.appendChild(tr);
+
+                    });
+
+                });
+
+                document.getElementById('status').style.display = 'none';
+
+                document.getElementById('OrdersTable').style.display = '';
+
+            }
+            catch (err) {
+
+                document.getElementById('status').textContent =
+                    'Error loading orders: ' + err.message;
+
+            }
+
+        }
+
+        loadOrders();
+    </script>
+
+</body>
+</html>

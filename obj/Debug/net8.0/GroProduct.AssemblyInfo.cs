@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GroProduct")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5326c575063cac73b20c406ce4cf2958c90ab37f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0756bbc345ff92df7bdb7c22f65492ea9a88090b")]
 [assembly: System.Reflection.AssemblyProductAttribute("GroProduct")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GroProduct")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

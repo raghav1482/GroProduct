@@ -139,3 +139,5 @@ D:\raghvendra\Projects\DotNET\GroProduct\GroProduct\obj\Debug\net8.0\GroProduct.
 D:\raghvendra\Projects\DotNET\GroProduct\GroProduct\obj\Debug\net8.0\ref\GroProduct.dll
 D:\raghvendra\Projects\DotNET\GroProduct\GroProduct\obj\Debug\net8.0\GroProduct.sourcelink.json
 D:\raghvendra\Projects\DotNET\GroProduct\GroProduct\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\raghvendra\Projects\DotNET\GroProduct\GroProduct\obj\Debug\net8.0\GroProduct.RazorAssemblyInfo.cache
+D:\raghvendra\Projects\DotNET\GroProduct\GroProduct\obj\Debug\net8.0\GroProduct.RazorAssemblyInfo.cs
